@@ -1,3 +1,5 @@
+import 'dart:js_interop';
+
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
@@ -69,6 +71,7 @@ class _ResultPageState extends State<ResultPage> {
       padding: const EdgeInsets.all(5),
       margin: const EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 10),
       decoration: BoxDecoration(
+
         color: Colors.white70,
         borderRadius: BorderRadius.circular(25),
         border: Border.all(color: Colors.black,width: 3),
@@ -179,7 +182,9 @@ class _ResultPageState extends State<ResultPage> {
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                   color: Colors.grey.shade700
-              ),)
+              ),),
+
+              FilledButton.icon(onPressed: (){}, icon: Icon(Icons.delete), label: Text('Delete'),)
             ],
           ),
         ],
