@@ -103,7 +103,12 @@ class _ResultPageState extends State<ResultPage> {
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                   color: Colors.grey.shade700
-              ),)
+              ),),
+              Text("Date", style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.grey.shade700
+              ),),
             ],
           ),
           Column(
@@ -133,7 +138,13 @@ class _ResultPageState extends State<ResultPage> {
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                   color: Colors.grey.shade700
-              ),)
+              ),),
+              Text("------>", style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.grey.shade700
+              ),),
+
             ],
           ),
           Column(
@@ -160,6 +171,11 @@ class _ResultPageState extends State<ResultPage> {
                   color: Colors.grey.shade700
               ),),
               Text(infoList.infoData!.place!, style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.grey.shade700
+              ),),
+              Text(infoList.infoData!.date!, style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                   color: Colors.grey.shade700

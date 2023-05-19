@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   var netController = new TextEditingController();
   var priceController = new TextEditingController();
   var placeController = new TextEditingController();
+  var dateController = new TextEditingController();
 
   List<info> infoList = [];
 
@@ -79,6 +80,28 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.only(top:20, left: 10, right: 10),
                 child: Container(
                   child: TextField(
+                      controller: dateController,
+                      keyboardType: TextInputType.datetime,
+                      autofocus: true,
+                      decoration: InputDecoration(
+                        hintText: "Enter The Date",
+                        hintStyle: TextStyle(color: Colors.grey, fontSize: 20),
+                        labelText: "Date",
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(40),
+                            borderSide: BorderSide.none
+                        ),
+
+                      )
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top:20, left: 10, right: 10),
+                child: Container(
+                  child: TextField(
                     controller: fuleController,
                       keyboardType: TextInputType.text,
                       autofocus: true,
@@ -123,9 +146,9 @@ class _HomePageState extends State<HomePage> {
                     keyboardType: TextInputType.number,
                     autofocus: true,
                     decoration: InputDecoration(
-                        hintText: "Enter The Price",
+                        hintText: "Enter The Fule Cost",
                         hintStyle: TextStyle(color: Colors.grey, fontSize: 20),
-                        labelText: "Price",
+                        labelText: "Fule Cost",
                         filled: true,
                         fillColor: Colors.white,
                         border: OutlineInputBorder(
@@ -169,7 +192,8 @@ class _HomePageState extends State<HomePage> {
                         fuleController.text,
                         netController.text,
                         priceController.text,
-                        placeController.text
+                        placeController.text,
+                        dateController.text,
                     );
 
                     Fluttertoast.showToast(
@@ -229,13 +253,14 @@ class _HomePageState extends State<HomePage> {
     ));
   }
 
-  void insertData(String reading, String FuleType, String quantity, String Price, String Place){
+  void insertData(String reading, String FuleType, String quantity, String Price, String Place, String date){
     dbref.child("Info").push().set({
       'reading': reading,
       'type': FuleType,
       'quantity': quantity,
       'price': Price,
       'place': Place,
+      'date': date,
     });
   }
 
