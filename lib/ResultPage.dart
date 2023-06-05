@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
@@ -112,11 +110,21 @@ class _ResultPageState extends State<ResultPage> {
                   fontSize: 20,
                   color: Colors.grey.shade700
               ),),
+              Text("Time", style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.grey.shade700
+              ),),
             ],
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Text("------>", style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.grey.shade700
+              ),),
               Text("------>", style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
@@ -183,8 +191,13 @@ class _ResultPageState extends State<ResultPage> {
                   fontSize: 20,
                   color: Colors.grey.shade700
               ),),
+              Text(infoList.infoData!.time!, style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Colors.grey.shade700
+              ),)
 
-              FilledButton.icon(onPressed: (){}, icon: Icon(Icons.delete), label: Text('Delete'),)
+
             ],
           ),
         ],

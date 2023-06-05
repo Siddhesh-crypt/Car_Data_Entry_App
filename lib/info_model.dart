@@ -12,8 +12,9 @@ class InfoData{
   String? price;
   String? place;
   String? date;
+  String? time;
 
-  InfoData({this.reading,this.fule_type, this.quantity, this.price, this.place, this.date});
+  InfoData({this.reading,this.fule_type, this.quantity, this.price, this.place, this.date, this.time});
 
   InfoData.fromJson(Map<dynamic, dynamic> json){
     reading = json["reading"];
@@ -21,6 +22,7 @@ class InfoData{
     quantity = json["quantity"];
     price = json["price"];
     place = json["place"];
-    date = json['date'];
+    date = json["date"];
+    time = json["time"];
   }
 }

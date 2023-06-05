@@ -20,6 +20,7 @@ class _HomePageState extends State<HomePage> {
   var priceController = new TextEditingController();
   var placeController = new TextEditingController();
   var dateController = new TextEditingController();
+  var timeController = new TextEditingController();
 
   List<info> infoList = [];
 
@@ -87,6 +88,29 @@ class _HomePageState extends State<HomePage> {
                         hintText: "Enter The Date",
                         hintStyle: TextStyle(color: Colors.grey, fontSize: 20),
                         labelText: "Date",
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(40),
+                            borderSide: BorderSide.none
+                        ),
+
+                      )
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top:20, left: 10, right: 10),
+                child: Container(
+                  child: TextField(
+                      controller: timeController,
+                      keyboardType: TextInputType.datetime,
+                      autofocus: true,
+                      decoration: InputDecoration(
+
+                        hintText: "Enter The Time",
+                        hintStyle: TextStyle(color: Colors.grey, fontSize: 20),
+                        labelText: "Time",
                         filled: true,
                         fillColor: Colors.white,
                         border: OutlineInputBorder(
@@ -186,7 +210,9 @@ class _HomePageState extends State<HomePage> {
                       fuleController.text.isNotEmpty &&
                       netController.text.isNotEmpty &&
                       placeController.text.isNotEmpty &&
-                      placeController.text.isNotEmpty){
+                      dateController.text.isNotEmpty &&
+                      timeController.text.isNotEmpty
+                  ){
                     insertData(
                         readingController.text,
                         fuleController.text,
@@ -194,6 +220,7 @@ class _HomePageState extends State<HomePage> {
                         priceController.text,
                         placeController.text,
                         dateController.text,
+                        timeController.text,
                     );
 
                     Fluttertoast.showToast(
@@ -211,6 +238,8 @@ class _HomePageState extends State<HomePage> {
                     netController.clear();
                     priceController.clear();
                     placeController.clear();
+                    dateController.clear();
+                    timeController.clear();
                   }else{
                     Fluttertoast.showToast(
                         msg: 'Fillup Data carefully',
@@ -253,7 +282,7 @@ class _HomePageState extends State<HomePage> {
     ));
   }
 
-  void insertData(String reading, String FuleType, String quantity, String Price, String Place, String date){
+  void insertData(String reading, String FuleType, String quantity, String Price, String Place, String date, String time){
     dbref.child("Info").push().set({
       'reading': reading,
       'type': FuleType,
@@ -261,6 +290,7 @@ class _HomePageState extends State<HomePage> {
       'price': Price,
       'place': Place,
       'date': date,
+      'time': time
     });
   }
 
